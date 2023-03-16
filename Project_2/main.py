@@ -3,7 +3,7 @@ import cv2
 # imports the cascades for detecting faces and eyes
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
-
+#for a change
 camera = cv2.VideoCapture(0)
 
 while True:
