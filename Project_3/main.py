@@ -56,3 +56,4 @@ def main(image):
 if __name__ == '__main__':
     main('test.jpg')
     main('test2.jpg')
+    main('test3.jpg')
