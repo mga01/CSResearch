@@ -6,7 +6,7 @@ mp_drawing_styles = mp.solutions.drawing_styles
 mp_hands = mp.solutions.hands
 
 # This uses video capture 1, Windows usually uses 0
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(0)
 
 with mp_hands.Hands(
     model_complexity=0,
