@@ -6,7 +6,7 @@ mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
 mp_pose = mp.solutions.pose
 
-cap = cv2.VideoCapture(1) # 1 for mac, 0 for windows
+cap = cv2.VideoCapture(0) # 1 for mac, 0 for windows
 with mp_pose.Pose(
     min_detection_confidence=0.5,
     min_tracking_confidence=0.5) as pose:
