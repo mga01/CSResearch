@@ -2,6 +2,7 @@ import cv2
 import mediapipe as mp
 import math
 import tkinter
+import numpy
 
 mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
@@ -12,13 +13,15 @@ screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 root.destroy()
 
+tileSize = 0 # default value
+
 # initialize video capture object to read video from external webcam
 cap = cv2.VideoCapture(1)
 # if there is no external camera then take the built-in camera
 if not cap.read()[0]:
     cap = cv2.VideoCapture(0)
 
-tileSize = int(screen_width / 8)
+
 selectorSize = 20
 
 players = [{'x': 0, 'y': 0, 'symbol': 'X', 'old_index_distance': 0, 'index_distance': 0, 'is_clicking': False, 'color': (0, 255, 0)},
@@ -80,6 +83,9 @@ with mp_hands.Hands(
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
     results = hands.process(image)
     image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+
+    if tileSize == 0:
+      tileSize = int(image.shape[1] / 8)
 
     cv2.rectangle(image, (0, 0), (screen_width, screen_height), (100, 100, 100), -1)
 
