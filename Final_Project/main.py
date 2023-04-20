@@ -8,7 +8,6 @@ mp_drawing_styles = mp.solutions.drawing_styles
 mp_hands = mp.solutions.hands
 
 root = tkinter.Tk()
-
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 root.destroy()
@@ -19,7 +18,7 @@ cap = cv2.VideoCapture(1)
 if not cap.read()[0]:
     cap = cv2.VideoCapture(0)
 
-tileSize = 150
+tileSize = int(screen_width / 8)
 selectorSize = 20
 
 players = [{'x': 0, 'y': 0, 'symbol': 'X', 'old_index_distance': 0, 'index_distance': 0, 'is_clicking': False, 'color': (0, 255, 0)},
@@ -95,7 +94,6 @@ with mp_hands.Hands(
     rectangle(int(image.shape[1] / 3) - 2, int(image.shape[0] / 5) + (tileSize * 3) - 1, tileSize * 3 + 2, 3, (100, 100, 100), -1)
 
     # check distance between points 9 and 6 (index finger) (if has decreased)
-
     if results.multi_hand_landmarks:
       for hand_landmarks in results.multi_hand_landmarks:
         keypoints = []
