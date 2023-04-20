@@ -65,7 +65,7 @@ def drawGrid(image):
         cv2.rectangle(image, (squareX, squareY), (squareX + tileSize, squareY + tileSize), color, -1)
         cv2.rectangle(image, (squareX, squareY), (squareX + tileSize, squareY + tileSize), (0, 0, 0), 2)
 
-        cv2.putText(image, grid[y][x], (squareX + int(tileSize / 1.5), squareY + int(tileSize / 1.5)), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0, 0, 0), 2, cv2.LINE_AA)
+        cv2.putText(image, grid[y][x], (squareX + int(tileSize / 4), squareY + int(tileSize / 1.5)), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0, 0, 0), 2, cv2.LINE_AA)
 
 with mp_hands.Hands(
     model_complexity=0,
