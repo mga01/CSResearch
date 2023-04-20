@@ -13,15 +13,13 @@ screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 root.destroy()
 
-tileSize = 0 # default value
-
 # initialize video capture object to read video from external webcam
 cap = cv2.VideoCapture(1)
 # if there is no external camera then take the built-in camera
 if not cap.read()[0]:
     cap = cv2.VideoCapture(0)
 
-
+tileSize = 0 # default value
 selectorSize = 20
 
 players = [{'x': 0, 'y': 0, 'symbol': 'X', 'old_index_distance': 0, 'index_distance': 0, 'is_clicking': False, 'color': (0, 255, 0)},
@@ -67,7 +65,7 @@ def drawGrid(image):
         cv2.rectangle(image, (squareX, squareY), (squareX + tileSize, squareY + tileSize), color, -1)
         cv2.rectangle(image, (squareX, squareY), (squareX + tileSize, squareY + tileSize), (0, 0, 0), 2)
 
-        cv2.putText(image, grid[y][x], (squareX + 50, squareY + int(tileSize / 1.5)), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 0), 2, cv2.LINE_AA)
+        cv2.putText(image, grid[y][x], (squareX + 50, squareY + int(tileSize / 1.5)), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0, 0, 0), 2, cv2.LINE_AA)
 
 with mp_hands.Hands(
     model_complexity=0,
